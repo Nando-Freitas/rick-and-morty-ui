@@ -18,7 +18,12 @@ jobs:
       - name: jest
         uses: actions/checkout@v1
         with:
-          node-version: '14'
+          node-version: 14.x
+      - name: install
+      - run: |
+          cd ./webapp
+          npm install
+      - name: test
       - run: |
           cd ./webapp
           npm test
