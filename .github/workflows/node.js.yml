@@ -18,7 +18,8 @@ jobs:
       - name: jest
         uses: actions/setup-node@v3
         with:
-          working-directory: ./webapp
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
       - run: |
           cd ./webapp
           npm test
