@@ -21,6 +21,7 @@ jobs:
     - name: build
       uses: actions/setup-node@v3
       with:
+        working-directory: ./webapp
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm run build --if-present
@@ -31,6 +32,8 @@ jobs:
       - uses: actions/checkout@v3
       - name: jest
         uses: actions/setup-node@v3
-      - run: cd ./webapp/ npm test
+        with:
+          working-directory: ./webapp
+      - run: npm test
 
     
