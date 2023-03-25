@@ -15,12 +15,12 @@ jobs:
     name: frontend
     steps:
       - uses: actions/checkout@v3
-      - name: jest
+      - name: actions
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-          working-directory: ./webapp
+      - name: jest tests
       - run: |
           cd ./webapp
           npm test
