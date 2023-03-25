@@ -21,4 +21,4 @@ Certify you are on the project's directory, and type:
 
 Certify you are on the project's directory, and type:
 
-`npm run tests`
+`npm test`
