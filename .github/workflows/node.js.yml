@@ -29,7 +29,7 @@ jobs:
     name: frontend
     steps:
       - name: jest
-      - uses: ./webapp/package.json
+        uses: ./webapp/package.json
       - run: npm test
 
     
