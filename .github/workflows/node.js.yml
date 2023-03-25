@@ -15,10 +15,10 @@ jobs:
     name: frontend
     steps:
       - uses: actions/checkout@v2
-      - name: actions
-      - uses: actions/checkout@v1
+      - name: jest
+        uses: actions/checkout@v1
         with:
-          node-version: 14
+          node-version: '14'
       - run: |
           cd ./webapp
           npm test
