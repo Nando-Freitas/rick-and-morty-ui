@@ -1,9 +1,9 @@
 import './App.css';
-import Header from './components/header';
+import ShowCharacters from './pages/showCharacters';
 
 function App() {
   return (
-    <Header></Header>
+    <ShowCharacters />
   );
 }
 
