@@ -1,9 +1,9 @@
 import './App.css';
-import ShowCharacters from './pages/showCharacters';
+import Main from './pages/main';
 
 function App() {
   return (
-    <ShowCharacters />
+    <Main />
   );
 }
 
