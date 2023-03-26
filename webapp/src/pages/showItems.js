@@ -6,7 +6,7 @@ import LocationRepository from '../repository/locationRepository';
 import { useState, useEffect } from "react";
 
 export default function ShowCharacters(props) {
-    const { search } = props;
+    const { menuItemSelected, search } = props;
 
     const [characters, setCharacters] = useState({});
     const [episodes, setEpisodes] = useState({});
@@ -42,6 +42,18 @@ export default function ShowCharacters(props) {
         setLocation(location);
     };
 
+    if(menuItemSelected === 'Episodes') {
+        return (
+            Object.keys(episodes).length !== 0 && (<Table items={episodes} search={search}/>)
+        )
+    }
+
+    if(menuItemSelected === 'Locations') {
+        return (
+            Object.keys(location).length !== 0 && (<Table items={location} search={search}/>)
+        )
+    }
+    
     return (
         Object.keys(characters).length !== 0 && (<Table items={characters} search={search}/>)
     )
