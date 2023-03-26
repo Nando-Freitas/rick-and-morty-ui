@@ -1,11 +1,20 @@
 import * as React from 'react';
+import MoreInfoModal from './moreInfoModal';
 
 export default function Table(props) {
     const { items, search } = props;
-    console.log(items.data.results)
+
+    const [showModal, setShowModal] = React.useState(false);
+    const [selectedItem, setSelectedItem] = React.useState(null);
+
+    const handleShowMoreInfo = (item) => {
+        setSelectedItem(item);
+        setShowModal(true);
+      }
     
     if(items.areCharacters === true){
         return (
+            <>
             <table>
                 <thead>
                     <tr>
@@ -14,6 +23,7 @@ export default function Table(props) {
                         <td>Status</td>
                         <td>Specie</td>
                         <td>Type</td>
+                        <td>More Info</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,6 +35,7 @@ export default function Table(props) {
                                 <td>{item.status}</td>
                                 <td>{item.species}</td>
                                 <td>{item.type}</td>
+                                <td><button onClick={() => handleShowMoreInfo(item)}>More Info</button></td>
                             </tr>
                         )
                     }) : items.data.results.filter(item => {return item.name.includes(search)}).map(item => {
@@ -35,11 +46,13 @@ export default function Table(props) {
                                 <td>{item.status}</td>
                                 <td>{item.species}</td>
                                 <td>{item.type}</td>
+                                <td><button onClick={() => handleShowMoreInfo(item)}>More Info</button></td>
                             </tr>
                         )
                     })}
                 </tbody>
             </table>
+            {showModal && <MoreInfoModal selectedItem={selectedItem} showModal={showModal} setShowModal={setShowModal} />}</>
         )
     }
 
