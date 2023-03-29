@@ -1,6 +1,11 @@
 import * as React from 'react';
 import MoreInfoModal from './moreInfoModal';
 
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { faCircleInfo, faToggleOn, faToggleOff } from '@fortawesome/free-solid-svg-icons';
+
+import {styledTable, styledTableHeader, styledTableBody, styledTableRow, styledTableImage, moreInfoButton} from './table.style'
+
 export default function Table(props) {
     const { items, search } = props;
 
@@ -15,38 +20,46 @@ export default function Table(props) {
     if(items.areCharacters === true){
         return (
             <>
-            <table>
-                <thead>
+            <table style={styledTable}>
+                <thead style={styledTableHeader}>
                     <tr>
                         <td></td>
-                        <td>Name</td>
-                        <td>Status</td>
-                        <td>Specie</td>
-                        <td>Type</td>
-                        <td>More Info</td>
+                        <td><b>Name</b></td>
+                        <td><b>Status</b></td>
+                        <td><b>Specie</b></td>
+                        <td><b>Type</b></td>
+                        <td><b>More Info</b></td>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody style={styledTableBody}>
                     {search === '' ? items.data.results.map(item => {
                         return (
                             <tr key={item.id}>
-                                <td><img alt={item.name} src={item.image} /></td>
+                                <td><img style={styledTableImage} alt={item.name} src={item.image} /></td>
                                 <td>{item.name}</td>
-                                <td>{item.status}</td>
+                                <td>{item.status === 'Alive' ? (<FontAwesomeIcon icon={faToggleOn} />) :  (<FontAwesomeIcon icon={faToggleOff} />)}</td>
                                 <td>{item.species}</td>
                                 <td>{item.type}</td>
-                                <td><button onClick={() => handleShowMoreInfo(item)}>More Info</button></td>
+                                <td>
+                                    <button style={moreInfoButton} onClick={() => handleShowMoreInfo(item)}>
+                                        <FontAwesomeIcon icon={faCircleInfo}>More Info</FontAwesomeIcon>
+                                    </button>
+                                </td>
                             </tr>
                         )
                     }) : items.data.results.filter(item => {return item.name.includes(search)}).map(item => {
                         return (
                             <tr key={item.id}>
-                                <td><img alt={item.name} src={item.image} /></td>
+                                <td><img style={styledTableImage} alt={item.name} src={item.image} /></td>
                                 <td>{item.name}</td>
-                                <td>{item.status}</td>
+                                <td>{item.status === 'Alive' ? (<FontAwesomeIcon icon={faToggleOn} />) :  (<FontAwesomeIcon icon={faToggleOff} />)}</td>
                                 <td>{item.species}</td>
                                 <td>{item.type}</td>
-                                <td><button onClick={() => handleShowMoreInfo(item)}>More Info</button></td>
+                                <td>
+                                    <button style={moreInfoButton} onClick={() => handleShowMoreInfo(item)}>
+                                        <FontAwesomeIcon icon={faCircleInfo}>More Info</FontAwesomeIcon>
+                                    </button>
+                                </td>
                             </tr>
                         )
                     })}
@@ -58,15 +71,15 @@ export default function Table(props) {
 
     if(items.areLocations === true) {
         return (
-            <table>
-                <thead>
+            <table style={styledTable}>
+                <thead style={styledTableHeader}>
                     <tr>
-                        <td>Name</td>
-                        <td>Dimension</td>
-                        <td>Type</td>
+                        <td><b>Name</b></td>
+                        <td><b>Dimension</b></td>
+                        <td><b>Type</b></td>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody style={styledTableBody}>
                     {search === '' ? items.data.results.map(item => {
                         return (
                             <tr key={item.id}>
