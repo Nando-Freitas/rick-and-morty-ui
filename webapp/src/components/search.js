@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { styledInputSearch } from './search.style';
 
 export default function Search(props){
     const { search, setSearch } = props;
@@ -9,7 +10,7 @@ export default function Search(props){
 
     return(
         <>
-            <input value={search} onChange={handleChange} type="text"></input>
+            <input style={styledInputSearch} placeholder={'Search'} value={search} onChange={handleChange} type="text"></input>
         </>
     )
 }
