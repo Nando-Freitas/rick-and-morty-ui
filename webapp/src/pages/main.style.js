@@ -6,7 +6,7 @@ const StyledMenu = {
 const StyledSearch = {
     display: 'flex',
     justifyContent: 'center',
-    marginTop: '3%',
+    marginTop: '2%',
 }
 
 const StyledImage = {
@@ -17,4 +17,10 @@ const StyledImage = {
     height: '350px'
 }
 
-export {StyledMenu, StyledSearch, StyledImage}
+const StyledTable = {
+    display: 'flex',
+    justifyContent: 'center',
+    marginTop: '3%',
+}
+
+export {StyledMenu, StyledSearch, StyledImage, StyledTable}
