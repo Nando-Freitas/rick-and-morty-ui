@@ -1,5 +1,5 @@
 import * as React from 'react';
-import MoreInfoModal from './moreInfoModal';
+import MoreInfoModal from './moreInfoModal' ;
 
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { faCircleInfo, faToggleOn, faToggleOff } from '@fortawesome/free-solid-svg-icons';
@@ -15,7 +15,7 @@ export default function Table(props) {
     const handleShowMoreInfo = (item) => {
         setSelectedItem(item);
         setShowModal(true);
-      }
+    }
     
     if(items.areCharacters === true){
         return (
@@ -65,7 +65,8 @@ export default function Table(props) {
                     })}
                 </tbody>
             </table>
-            {showModal && <MoreInfoModal selectedItem={selectedItem} showModal={showModal} setShowModal={setShowModal} />}</>
+            {showModal && <MoreInfoModal selectedItem={selectedItem} showModal={showModal} setShowModal={setShowModal} />}
+            </>
         )
     }
 
@@ -104,22 +105,20 @@ export default function Table(props) {
     
     if(items.areEpisodes === true) {
         return (
-            <table>
-                <thead>
+            <table style={styledTable}>
+                <thead style={styledTableHeader}>
                     <tr>
-                        <td>Name</td>
-                        <td>Episode</td>
-                        <td>Created At</td>
-                        <td>Air Date</td>
+                        <td><b>Name</b></td>
+                        <td><b>Episode</b></td>
+                        <td><b>Air Date</b></td>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody style={styledTableBody}>
                     {search === '' ? items.data.results.map(item => {
                         return (
                             <tr key={item.id}>
                                 <td>{item.name}</td>
                                 <td>{item.episode}</td>
-                                <td>{item.created}</td>
                                 <td>{item.air_date}</td>
                             </tr>
                         )
@@ -128,7 +127,6 @@ export default function Table(props) {
                             <tr key={item.id}>
                                 <td>{item.name}</td>
                                 <td>{item.episode}</td>
-                                <td>{item.created}</td>
                                 <td>{item.air_date}</td>
                             </tr>
                         )

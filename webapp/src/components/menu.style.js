@@ -3,7 +3,8 @@ const menuItemButton = {
     color: '#44281d',
     border: 'none',
     fontFamily: 'Bangers, cursive',
-    fontSize: '24px'
+    fontSize: '24px',
+    cursor: 'pointer'
 };
 
 const styledMenuItem = {
