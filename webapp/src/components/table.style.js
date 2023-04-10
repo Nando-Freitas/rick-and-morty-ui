@@ -2,7 +2,8 @@ const styledTable = {
     backgroundColor: 'white',
     padding: '20px 20px 20px 20px',
     borderRadius: '20px',
-    marginBottom: '5%'
+    marginBottom: '5%',
+    width: '800px'
 };
 
 const styledTableHeader = {
