@@ -2,9 +2,10 @@ const menuItemButton = {
     backgroundColor: '#9018be',
     color: '#44281d',
     border: 'none',
-    fontFamily: 'Bangers, cursive',
+    fontFamily: 'Fredoka, sans-serif',
     fontSize: '24px',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    fontWeight: 'bold'
 };
 
 const styledMenuItem = {

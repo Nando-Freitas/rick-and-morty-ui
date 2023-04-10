@@ -13,16 +13,16 @@ export default function MoreInfoModal(props) {
         return(
             <div style={moreInfoModalContainer}>
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                    <h1>{selectedItem.name}</h1>
+                    <h1 style={{fontFamily: 'Fredoka, sans-serif'}}>{selectedItem.name}</h1>
                     <button style={closeButtonStyled} onClick={() => setShowModal(false)}><FontAwesomeIcon icon={faXmark} /></button>
                 </div>
                 <div style={{display: 'flex'}}>
                     <img alt={selectedItem.name}  style={imgModalStyled} src={selectedItem.image} />
                     <div>
-                        <p>Status: {selectedItem.status === 'Alive' ? (<FontAwesomeIcon icon={faToggleOn} />) :  (<FontAwesomeIcon icon={faToggleOff} />)}</p>
-                        <p>Specie: {selectedItem.species}</p>
-                        <p>Gender: {selectedItem.gender === 'Female' ? (<FontAwesomeIcon icon={faPersonDress} />) :  (<FontAwesomeIcon icon={faPerson} />)}</p>
-                        <p>{selectedItem.type === '' ? (<></>) : (<p>Type: {selectedItem.type}</p>)}</p>
+                        <p style={{fontFamily: 'Fredoka, sans-serif'}}>Status: {selectedItem.status === 'Alive' ? (<FontAwesomeIcon icon={faToggleOn} />) :  (<FontAwesomeIcon icon={faToggleOff} />)}</p>
+                        <p style={{fontFamily: 'Fredoka, sans-serif'}}>Specie: {selectedItem.species}</p>
+                        <p style={{fontFamily: 'Fredoka, sans-serif'}}>Gender: {selectedItem.gender === 'Female' ? (<FontAwesomeIcon icon={faPersonDress} />) :  (<FontAwesomeIcon icon={faPerson} />)}</p>
+                        <p style={{fontFamily: 'Fredoka, sans-serif'}}>{selectedItem.type === '' ? (<></>) : (<p>Type: {selectedItem.type}</p>)}</p>
                     </div>
                 </div> 
             </div>
