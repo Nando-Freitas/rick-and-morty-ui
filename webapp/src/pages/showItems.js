@@ -3,10 +3,12 @@ import Table from '../components/table';
 import CharacterRepository from '../repository/characterRepository';
 import EpisodesRepository from '../repository/episodesRepository';
 import LocationRepository from '../repository/locationRepository';
+import Pagination from '../components/pagination';
 import { useState, useEffect } from "react";
 
 export default function ShowCharacters(props) {
     const { menuItemSelected, search } = props;
+    const [page, setPage] = useState(0);
 
     const [characters, setCharacters] = useState({});
     const [episodes, setEpisodes] = useState({});
@@ -14,10 +16,10 @@ export default function ShowCharacters(props) {
 
     useEffect(() => {
         getCharacters();
-    }, [setCharacters]);
+    }, [setCharacters, page]);
 
     const getCharacters = async () => {
-        const characters = await new CharacterRepository().findAll();
+        const characters = await new CharacterRepository().findAll(page);
         characters.areCharacters = true;
         setCharacters(characters);
     };
@@ -55,6 +57,9 @@ export default function ShowCharacters(props) {
     }
     
     return (
-        Object.keys(characters).length !== 0 && (<Table items={characters} search={search}/>)
+        <>
+        {Object.keys(characters).length !== 0 && (<Table items={characters} search={search} />)}    
+        <Pagination setPage={setPage} />
+        </>
     )
 }
