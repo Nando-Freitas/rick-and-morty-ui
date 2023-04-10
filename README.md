@@ -1,5 +1,6 @@
 # Rick & Morty UI
 
+<img src='./updated_cover.png' />
 A Rick & Morty UI is a React project which aims to show information about the serie in a beautiful way. The information is getted from a public API: https://rickandmortyapi.com/api
 
 ### Tools
